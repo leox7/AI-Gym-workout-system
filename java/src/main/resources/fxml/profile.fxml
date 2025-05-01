@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.aigym.app.controllers.ProfileController"
+            prefHeight="768.0" prefWidth="1024.0"
+            stylesheets="@../css/style.css">
+    
+    <!-- Left Sidebar -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="200.0" spacing="10.0">
+            <Label text="AI Gym Workout" styleClass="title-label" />
+            
+            <Button fx:id="dashboardButton" text="Dashboard" styleClass="sidebar-button" onAction="#handleDashboardButtonAction" />
+            <Button fx:id="workoutsButton" text="Workouts" styleClass="sidebar-button" onAction="#handleWorkoutsButtonAction" />
+            <Button fx:id="progressButton" text="Progress" styleClass="sidebar-button" onAction="#handleProgressButtonAction" />
+            <Button fx:id="profileButton" text="Profile" styleClass="sidebar-button, active" onAction="#handleProfileButtonAction" />
+            
+            <Region VBox.vgrow="ALWAYS" />
+            
+            <Button fx:id="logoutButton" text="Logout" styleClass="sidebar-button" onAction="#handleLogoutButtonAction" />
+            
+            <padding>
+                <Insets top="20.0" right="10.0" bottom="20.0" left="10.0" />
+            </padding>
+        </VBox>
+    </left>
+    
+    <!-- Main Content -->
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <VBox spacing="20.0" styleClass="content-area">
+                <Label text="My Profile" styleClass="title-label" />
+                
+                <!-- Profile Information Form -->
+                <GridPane hgap="20.0" vgap="15.0">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="100.0" prefWidth="150.0" />
+                        <ColumnConstraints prefWidth="300.0" />
+                    </columnConstraints>
+                    
+                    <!-- Personal Information -->
+                    <Label text="Personal Information" styleClass="subtitle-label" 
+                           GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2" />
+                    
+                    <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="firstNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    
+                    <Label text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    
+                    <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    
+                    <Label text="Date of Birth:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <DatePicker fx:id="dateOfBirthPicker" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                    
+                    <Label text="Gender:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                    <ComboBox fx:id="genderComboBox" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                    
+                    <!-- Physical Information -->
+                    <Label text="Physical Information" styleClass="subtitle-label" 
+                           GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2" />
+                    
+                    <Label text="Height (cm):" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                    <TextField fx:id="heightField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                    
+                    <Label text="Weight (kg):" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                    <TextField fx:id="weightField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                    
+                    <!-- Fitness Information -->
+                    <Label text="Fitness Information" styleClass="subtitle-label" 
+                           GridPane.columnIndex="0" GridPane.rowIndex="9" GridPane.columnSpan="2" />
+                    
+                    <Label text="Fitness Goal:" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+                    <ComboBox fx:id="fitnessGoalComboBox" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                    
+                    <Label text="Fitness Level:" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+                    <ComboBox fx:id="fitnessLevelComboBox" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                    
+                    <!-- Account Information -->
+                    <Label text="Account Information" styleClass="subtitle-label" 
+                           GridPane.columnIndex="0" GridPane.rowIndex="12" GridPane.columnSpan="2" />
+                    
+                    <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="13" />
+                    <TextField fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="13" disable="true" />
+                    
+                    <Label text="Change Password:" GridPane.columnIndex="0" GridPane.rowIndex="14" />
+                    <Button text="Change Password" onAction="#handleChangePasswordButtonAction" 
+                            GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                </GridPane>
+                
+                <!-- Save Button -->
+                <HBox alignment="CENTER" spacing="10.0">
+                    <Button fx:id="saveButton" text="Save Changes" onAction="#handleSaveButtonAction" 
+                            styleClass="primary-button" />
+                </HBox>
+                
+                <padding>
+                    <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+                </padding>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

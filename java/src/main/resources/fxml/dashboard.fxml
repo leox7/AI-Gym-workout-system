@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.aigym.app.controllers.DashboardController"
+            prefHeight="768.0" prefWidth="1024.0"
+            stylesheets="@../css/style.css"
+            styleClass="root">
+    
+    <!-- Left Sidebar -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="200.0" spacing="10.0">
+            <Label text="AI Gym Workout" styleClass="title-label" />
+            
+            <Button fx:id="dashboardButton" text="Dashboard" styleClass="sidebar-button, active" onAction="#handleDashboardButtonAction" />
+            <Button fx:id="workoutsButton" text="Workouts" styleClass="sidebar-button" onAction="#handleWorkoutsButtonAction" />
+            <Button fx:id="progressButton" text="Progress" styleClass="sidebar-button" onAction="#handleProgressButtonAction" />
+            <Button fx:id="profileButton" text="Profile" styleClass="sidebar-button" onAction="#handleProfileButtonAction" />
+            
+            <Region VBox.vgrow="ALWAYS" />
+            
+            <Button fx:id="logoutButton" text="Logout" styleClass="sidebar-button" onAction="#handleLogoutButtonAction" />
+            
+            <padding>
+                <Insets top="20.0" right="10.0" bottom="20.0" left="10.0" />
+            </padding>
+        </VBox>
+    </left>
+    
+    <!-- Main Content -->
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <VBox spacing="20.0" styleClass="content-area">
+                <!-- Welcome and Quote Section -->
+                <HBox styleClass="dashboard-card">
+                    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                        <Label fx:id="welcomeLabel" text="Welcome, User!" styleClass="title-label" />
+                        <Label fx:id="motivationalQuoteLabel" text="Your daily motivational quote will appear here." wrapText="true" />
+                        <Label fx:id="quoteAuthorLabel" text="- Author" styleClass="quote-author" />
+                    </VBox>
+                </HBox>
+                
+                <!-- Workout Recommendations -->
+                <VBox spacing="10.0">
+                    <Label text="Your Recommended Workouts" styleClass="subtitle-label" />
+                    <VBox fx:id="workoutRecommendationsContainer" spacing="10.0" />
+                </VBox>
+                
+                <!-- Progress Charts -->
+                <VBox spacing="10.0">
+                    <Label text="Your Progress" styleClass="subtitle-label" />
+                    <LineChart fx:id="progressChart" styleClass="progress-chart">
+                        <xAxis>
+                            <CategoryAxis label="Date" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Value" />
+                        </yAxis>
+                    </LineChart>
+                </VBox>
+                
+                <padding>
+                    <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+                </padding>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

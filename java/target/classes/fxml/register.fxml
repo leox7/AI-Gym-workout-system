@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" 
+            xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx"
+            fx:controller="com.aigym.app.controllers.RegisterController"
+            stylesheets="@../css/style.css">
+    <children>
+        <VBox alignment="CENTER" spacing="20.0" AnchorPane.topAnchor="0.0" 
+              AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0" 
+              AnchorPane.leftAnchor="0.0">
+            <children>
+                <Label text="AI Gym Workout System" styleClass="title-label"/>
+                
+                <VBox styleClass="login-form" spacing="15.0" maxWidth="400.0">
+                    <Label text="Register New Account" styleClass="subtitle-label" />
+                    
+                    <Label text="Full Name" />
+                    <TextField fx:id="fullNameField" promptText="Enter your full name" />
+                    
+                    <Label text="Username" />
+                    <TextField fx:id="usernameField" promptText="Choose a username" />
+                    
+                    <Label text="Email" />
+                    <TextField fx:id="emailField" promptText="Enter your email" />
+                    
+                    <Label text="Password" />
+                    <PasswordField fx:id="passwordField" promptText="Create a password" />
+                    
+                    <Label text="Confirm Password" />
+                    <PasswordField fx:id="confirmPasswordField" promptText="Confirm your password" />
+                    
+                    <Label fx:id="errorMessageLabel" styleClass="error-label" />
+                    
+                    <HBox spacing="10.0" alignment="CENTER">
+                        <Button fx:id="registerButton" text="Register" onAction="#handleRegisterButtonAction" 
+                                styleClass="primary-button" defaultButton="true" />
+                        <Button fx:id="backButton" text="Back to Login" onAction="#handleBackButtonAction" 
+                                styleClass="secondary-button" />
+                    </HBox>
+                </VBox>
+            </children>
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>

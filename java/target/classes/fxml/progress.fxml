@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.aigym.app.controllers.ProgressController"
+            prefHeight="768.0" prefWidth="1024.0"
+            stylesheets="@../css/style.css"
+            styleClass="root">
+    
+    <!-- Left Sidebar -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="200.0" spacing="10.0">
+            <Label text="AI Gym Workout" styleClass="title-label" />
+            
+            <Button fx:id="dashboardButton" text="Dashboard" styleClass="sidebar-button" onAction="#handleDashboardButtonAction" />
+            <Button fx:id="workoutsButton" text="Workouts" styleClass="sidebar-button" onAction="#handleWorkoutsButtonAction" />
+            <Button fx:id="progressButton" text="Progress" styleClass="sidebar-button, active" onAction="#handleProgressButtonAction" />
+            <Button fx:id="profileButton" text="Profile" styleClass="sidebar-button" onAction="#handleProfileButtonAction" />
+            
+            <Region VBox.vgrow="ALWAYS" />
+            
+            <Button fx:id="logoutButton" text="Logout" styleClass="sidebar-button" onAction="#handleLogoutButtonAction" />
+            
+            <padding>
+                <Insets top="20.0" right="10.0" bottom="20.0" left="10.0" />
+            </padding>
+        </VBox>
+    </left>
+    
+    <!-- Main Content -->
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <VBox spacing="20.0" styleClass="content-area">
+                <HBox spacing="20.0">
+                    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                        <Label text="Your Progress" styleClass="title-label" />
+                        
+                        <!-- Filters -->
+                        <HBox spacing="15.0" alignment="CENTER_LEFT">
+                            <Label text="Metric:" />
+                            <ComboBox fx:id="metricComboBox" prefWidth="150.0" />
+                            
+                            <Label text="Time Period:" />
+                            <ComboBox fx:id="timePeriodComboBox" prefWidth="150.0" />
+                            
+                            <Button text="Update Chart" onAction="#handleUpdateChartButtonAction" />
+                        </HBox>
+                    </VBox>
+                </HBox>
+                
+                <!-- Progress Chart -->
+                <LineChart fx:id="progressChart" title="Progress Over Time" legendVisible="true">
+                    <xAxis>
+                        <CategoryAxis label="Date" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Value" />
+                    </yAxis>
+                </LineChart>
+                
+                <!-- Summary Stats -->
+                <HBox spacing="20.0">
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="Total Workouts" styleClass="stat-label" />
+                        <Label fx:id="totalWorkoutsLabel" text="0" styleClass="stat-value" />
+                    </VBox>
+                    
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="Total Time (mins)" styleClass="stat-label" />
+                        <Label fx:id="totalTimeLabel" text="0" styleClass="stat-value" />
+                    </VBox>
+                    
+                    <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                        <Label text="Calories Burned" styleClass="stat-label" />
+                        <Label fx:id="caloriesBurnedLabel" text="0" styleClass="stat-value" />
+                    </VBox>
+                </HBox>
+                
+                <!-- Workout History Table -->
+                <VBox spacing="10.0">
+                    <Label text="Workout History" styleClass="section-title" />
+                    
+                    <TableView fx:id="workoutHistoryTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="dateColumn" text="Date" prefWidth="100.0" />
+                            <TableColumn fx:id="workoutNameColumn" text="Workout" prefWidth="200.0" />
+                            <TableColumn fx:id="durationColumn" text="Duration (mins)" prefWidth="120.0" />
+                            <TableColumn fx:id="caloriesColumn" text="Calories" prefWidth="100.0" />
+                            <TableColumn fx:id="statusColumn" text="Status" prefWidth="100.0" />
+                        </columns>
+                    </TableView>
+                </VBox>
+                
+                <padding>
+                    <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+                </padding>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

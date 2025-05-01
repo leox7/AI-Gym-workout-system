@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.aigym.app.controllers.WorkoutCardController"
+      styleClass="workout-card" spacing="10.0">
+    
+    <HBox spacing="10.0" alignment="CENTER_LEFT">
+        <Label fx:id="workoutNameLabel" text="Workout Name" styleClass="title" HBox.hgrow="ALWAYS" />
+        <Label fx:id="workoutAiGeneratedLabel" text="AI Generated" styleClass="ai-generated-label" />
+    </HBox>
+    
+    <Label fx:id="workoutDescriptionLabel" text="Workout description goes here..." wrapText="true" />
+    
+    <HBox spacing="10.0">
+        <Label text="Duration:" />
+        <Label fx:id="workoutDurationLabel" text="30 minutes" />
+    </HBox>
+    
+    <HBox spacing="10.0">
+        <Label text="Difficulty:" />
+        <Label fx:id="workoutDifficultyLabel" text="Intermediate" />
+    </HBox>
+    
+    <HBox spacing="10.0">
+        <Label text="Target Muscle Group:" />
+        <Label fx:id="workoutTargetMuscleGroupLabel" text="Full Body" />
+    </HBox>
+    
+    <HBox spacing="10.0">
+        <Button fx:id="startWorkoutButton" text="Start Workout" onAction="#handleStartWorkoutButtonAction" />
+        <Button fx:id="favoriteButton" text="Favorite" onAction="#handleFavoriteButtonAction" />
+    </HBox>
+    
+    <padding>
+        <Insets top="10.0" right="10.0" bottom="10.0" left="10.0" />
+    </padding>
+</VBox>
