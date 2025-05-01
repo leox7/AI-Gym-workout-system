@@ -8,32 +8,3 @@ config.local.js
 
 # Testing artifacts
 __snapshots__/
-
-# Compiled files
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
-
-# Backup files
-*.bak
-*~
-
-# Batch and command files
-*.bat
-*.cmd
-
-# Maven target directory
-target/lib/
-
-# Generated sources
-generated/
-generated-sources/
-generated-test-sources/
-target/generated-sources/
-target/generated-test-sources/
-
-# Test directory
-src/test/java/
